@@ -1,3 +1,9 @@
+# samplePython.py
+# Marisa Shuman
+# CSCI 77800 Fall 2022
+# collaborators: Marisa Shuman
+# consulted: 
+
 #make a cell class
 class Cell:
     def __init__(self, value = " "):
