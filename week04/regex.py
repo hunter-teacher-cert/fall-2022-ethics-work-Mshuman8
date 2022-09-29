@@ -2,10 +2,22 @@ import re
 
 
 def find_date(line):
-    pattern = r'(Ms|Miss)(?=(Maris))'
+
+  # pattern = r'[A-Z][a-z]+' -- checks for a capital letter, followed by lower case letters until it hits a capital or a non alpha character
+    pattern = r'[A-Z][a-z]+ [A-Z][a-z]+' 
     result = re.findall(pattern,line)
-    print(result)
-    pattern=r'(Ms|Miss)'
+    #result is a list that is holding all the names that fit the pattern parameters
+
+  #Title first name
+    pattern = r'((?:Dr\.|Mr\.|Ms\.|Miss|Mr|Ms) [A-Z][a-z]+)'
+    result = result + re.findall(pattern,line)
+
+  #Title First initial Last name
+    pattern = r'((?:Dr\.|Mr\.|Ms\.|Miss|Mr|Ms) [A-Z] [A-Z][a-z]+)'
+    result = result + re.findall(pattern,line)
+
+  #First initial, middle initial, last name
+    pattern = r'([A-Z]\. [A-Z]\. [A-Z][a-z]+)'
     result = result + re.findall(pattern,line)
     return result
 
